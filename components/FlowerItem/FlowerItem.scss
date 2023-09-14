@@ -1,0 +1,112 @@
+@use '../../variables';
+
+.flowerItemContainer {
+	display: flex;
+	flex-direction: column;
+	row-gap: 20px;
+	position: relative;
+	cursor: pointer;
+	width: calc(25% - 25px);
+	// width: 20%;
+	min-width: 195px;
+	// @apply shadow-md rounded-md;
+}
+
+.flowerInfo {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	& > :first-child {
+		font-size: 14px;
+		font-weight: 500;
+		word-wrap: normal;
+		text-overflow: ellipsis;
+		width: calc(100% - 58px);
+		overflow: hidden;
+		text-wrap: nowrap;
+		margin-left: 10px;
+	}
+
+	& > :last-child {
+		font-size: 20px;
+		font-weight: 700;
+		width: 48px;
+	}
+}
+
+.flowerButtons {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	column-gap: 10px;
+
+	& > :last-child {
+		transition: all 0.3s ease-in-out;
+		background-color: variables.$secondary-color;
+		padding: 10px 15px;
+		border-radius: 22px;
+		font-weight: 600;
+		font-size: 14px;
+
+		&:hover {
+			background-color: variables.$primary-color;
+			color: white;
+		}
+	}
+}
+
+.sale {
+	position: absolute;
+	font-size: 14px;
+	top: 10px;
+	left: 10px;
+	padding: 5px 10px;
+	background-color: #cc0e00;
+	color: #fbeeed;
+	font-weight: 700;
+	// border-top-left-radius: 50%;
+	// border-bottom-right-radius: 50%;
+	border-radius: 8px;
+}
+
+// X-Large devices (large desktops, less than 1400px)
+@media (max-width: 1439.98px) {
+	.flowerItemContainer {
+		width: calc(33.33% - 25px);
+	}
+}
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {
+	.flowerItemContainer {
+		width: calc(50% - 25px);
+	}
+}
+
+// Medium devices (tablets, less than 992px) and burger
+@media (max-width: 991.98px) {
+	.flowerItemContainer {
+		width: calc(50% - 25px);
+	}
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+	.flowerItemContainer {
+		width: calc(50% - 25px);
+	}
+}
+
+// X-Small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+	.flowerItemContainer {
+		width: calc(50% - 25px);
+	}
+}
+
+@media (max-width: 450.98px) {
+	.flowerItemContainer {
+		width: 70%;
+	}
+}

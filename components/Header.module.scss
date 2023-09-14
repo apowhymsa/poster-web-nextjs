@@ -1,0 +1,210 @@
+@use '../variables';
+
+// .headerContainer {
+// 	@apply px-20 py-4;
+// }
+
+.headerContainer {
+	max-width: 1400px;
+	margin: 0 auto;
+}
+
+.stickyHeader {
+	position: fixed;
+}
+
+.headerRightButtonContainer {
+	@apply flex items-center gap-x-4;
+}
+// px-20 py-4
+.headerTop {
+	@apply flex items-center justify-between pt-5 pb-3;
+
+	& > img {
+		transition: all ease-in-out 0.2s;
+	}
+}
+
+.headerBottom {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 40px;
+}
+
+.headerInfo {
+	text-align: end;
+
+	& > a {
+		transition: all ease-in-out 0.3s;
+		font-weight: 700;
+		font-size: 16px;
+		line-height: 20px;
+		color: #0e2f4b;
+	}
+
+	& > p {
+		font-weight: 500;
+		font-size: 14px;
+		color: #99a2aa;
+		line-height: 20px;
+	}
+}
+
+.navList {
+	@apply flex gap-x-7;
+
+	.listItem {
+		@apply py-4 cursor-pointer relative;
+		font-size: 16px;
+		color: #99a2aa;
+		transition: color 0.3s ease-in-out;
+
+		&:hover {
+			color: variables.$primary-color;
+		}
+	}
+
+	.navItemActive {
+		color: variables.$primary-color;
+
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 0;
+			height: 2px;
+			background-color: variables.$primary-color;
+			animation: widthGrow 0.5s ease-in-out forwards;
+		}
+	}
+}
+
+.headerRightButton {
+	@apply flex items-center justify-center w-10 h-10 rounded-full cursor-pointer;
+	background-color: variables.$secondary-color;
+	transition: all 0.5s ease-in-out;
+
+	& > span > svg {
+		transition: all ease-in-out 0.3s;
+	}
+
+	svg > path {
+		transition: stroke 0.3s ease-in-out;
+	}
+
+	&:hover {
+		background-color: variables.$primary-color;
+
+		svg > path {
+			stroke: white;
+		}
+	}
+}
+
+.buttonIcon > svg {
+	width: 24px;
+	height: 24px;
+}
+
+@keyframes widthGrow {
+	from {
+		width: 0;
+	}
+
+	to {
+		width: 100%;
+	}
+}
+
+// BURGER
+.headerBurger {
+	position: relative;
+	width: 30px;
+	height: 14px;
+
+	&::before,
+	&::after,
+	& > .burgerWrapper {
+		content: '';
+		position: absolute;
+		background-color: black;
+		width: 100%;
+		height: 1.5px;
+		border-radius: 8px;
+	}
+
+	&::before {
+		top: 0;
+	}
+
+	& > .burgerWrapper {
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	&::after {
+		bottom: 0;
+	}
+}
+
+// X-Large devices (large desktops, less than 1400px)
+@media (max-width: 1439.98px) {
+	.headerContainer {
+		max-width: 1160px;
+	}
+}
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {
+	.headerContainer {
+		max-width: 920px;
+	}
+}
+
+// Medium devices (tablets, less than 992px) and burger
+@media (max-width: 991.98px) {
+	.headerContainer {
+		max-width: 680px;
+	}
+
+	.headerNav {
+		display: none;
+	}
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+	.headerContainer {
+		max-width: 500px;
+	}
+}
+
+// X-Small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+	.headerContainer {
+		padding: 0 15px;
+	}
+}
+
+@media (max-width: 450.98px) {
+	.headerTop > img {
+		// width: 90px;
+		transform: scale(0.75);
+	}
+
+	.headerInfo > a {
+		font-size: 14px;
+	}
+
+	// .headerRightButton {
+	// 	width: 32px;
+	// 	height: 32px;
+
+	// 	& > span > svg {
+	// 		width: 22px;
+	// 		height: 22px;
+	// 	}
+	// }
+}

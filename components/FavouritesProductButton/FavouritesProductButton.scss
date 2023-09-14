@@ -1,0 +1,23 @@
+@use '../../_variables.scss';
+.favouriteButton {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all 0.3s ease-in-out;
+	background-color: variables.$secondary-color;
+	width: 41px;
+	height: 41px;
+	border-radius: 50%;
+
+	& > svg > path {
+		transition: all 0.3s ease-in-out;
+	}
+
+	&:hover {
+		background-color: variables.$primary-color;
+	}
+
+	&:hover > svg > path {
+		stroke: white;
+	}
+}
